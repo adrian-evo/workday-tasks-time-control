@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-04-24 09:21+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: trayicon.py strings
+msgid "Check In-Out time"
+msgstr "Check In-Out Zeit"
+
+msgid "Check In"
+msgstr "Check In"
+
+msgid "Check Out"
+msgstr "Check Out"
+
+msgid "Verify"
+msgstr "Verifizieren"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Break"
+msgstr "Pause"
+
+msgid "Quit"
+msgstr "Beenden"
+
+msgid "Welcome!"
+msgstr "Willkommen!"
+
+msgid "Please start with a Check-in task in the morning."
+msgstr "Beginnen Sie morgens bitte mit einer Einchecken Aufgabe."
+
+msgid "End of the working day"
+msgstr "Ende des Arbeitstages"
+
+msgid "Break is active for {} hours. Click to deactivate it and to continue working."
+msgstr "Pause ist seit {} Stunden aktiv. Klicken Sie, um es zu deaktivieren und weiterzuarbeiten."
+
+msgid "[Passed: {}, Undertime: {}]"
+msgstr "[Passiert: {}, Minusstunden: {}]"
+
+msgid "[Passed: {}, Overtime: {}]"
+msgstr "[Passiert: {}, Überstunden: {}]"
+
+#: tasks.robot strings
+msgid "Automatic check in action was not implemented."
+msgstr "Automatisches Einchecken wurde nicht implementiert."
+
+msgid "Please click [Check In] button and then press OK to continue."
+msgstr "Bitte klicken Sie auf die Schaltfläche [Check In] und dann auf OK, um fortzufahren."
+
+msgid "You have total undertime:"
+msgstr "Sie haben totale Minusstunden:"
+
+msgid "You have total overtime:"
+msgstr "Sie haben totale Überstunden:"
+
+msgid "Check-in time is not available for today (not performed or workday ended)."
+msgstr "Einchecken Zeit ist für heute nicht verfügbar (nicht durchgeführt oder Arbeitstag beendet)."
+
+msgid "Cannot perform Check-out before Check-in."
+msgstr "Check-out kann nicht vor Check-in ausgeführt werden."
+
+msgid "Automatic check out action was not implemented."
+msgstr "Die automatische Check-out-Aktion wurde nicht implementiert."
+
+msgid "Please click [Check Out] button and then press OK to continue."
+msgstr "Bitte klicken Sie auf die Schaltfläche [Check Out] und dann auf OK, um fortzufahren."
+
+msgid "Goodbye!"
+msgstr "Auf Wiedersehen!"
+
+msgid "Today undertime"
+msgstr "Heute Minusstunden"
+
+msgid "Today overtime"
+msgstr "Heute Überstunden"
+
+msgid "Worked so far:"
+msgstr "Bisher gearbeitet:"
+
+msgid "Cannot retrieve user or password. Check vault json file or the credential system under use."
+msgstr "Benutzer oder Passwort kann nicht abgerufen werden. Überprüfen Sie die Vault-JSON-Datei oder das verwendete Anmeldesystem."
+
+msgid "Automatic custom action was not implemented."
+msgstr "Automatisches Benutzerdefinierte Aktion wurde nicht implementiert."
+
+msgid "Custom task action done!"
+msgstr "Benutzerdefinierte Aufgaben Aktion erledigt!"
+
+msgid "Please do custom task action and then press OK to continue!"
+msgstr "Bitte führen Sie eine benutzerdefinierte Aufgaben Aktion aus und drücken Sie dann OK, um fortzufahren!"

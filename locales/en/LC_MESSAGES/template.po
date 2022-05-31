@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-04-24 09:21+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: trayicon.py strings
+msgid "Check In-Out time"
+msgstr ""
+
+msgid "Check In"
+msgstr ""
+
+msgid "Check Out"
+msgstr ""
+
+msgid "Verify"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Break"
+msgstr ""
+
+msgid "Quit"
+msgstr ""
+
+msgid "Welcome!"
+msgstr ""
+
+msgid "Please start with a Check-in task in the morning."
+msgstr ""
+
+msgid "End of the working day"
+msgstr ""
+
+msgid "Break is active for {} hours. Click to deactivate it and to continue working."
+msgstr ""
+
+msgid "[Passed: {}, Undertime: {}]"
+msgstr ""
+
+msgid "[Passed: {}, Overtime: {}]"
+msgstr ""
+
+#: tasks.robot strings
+msgid "Automatic check in action was not implemented."
+msgstr ""
+
+msgid "Please click [Check In] button and then press OK to continue."
+msgstr ""
+
+msgid "You have total undertime:"
+msgstr ""
+
+msgid "You have total overtime:"
+msgstr ""
+
+msgid "Check-in time is not available for today (not performed or workday ended)."
+msgstr ""
+
+msgid "Cannot perform Check-out before Check-in."
+msgstr ""
+
+msgid "Automatic check out action was not implemented."
+msgstr ""
+
+msgid "Please click [Check Out] button and then press OK to continue."
+msgstr ""
+
+msgid "Goodbye!"
+msgstr ""
+
+msgid "Today undertime"
+msgstr ""
+
+msgid "Today overtime"
+msgstr ""
+
+msgid "Worked so far:"
+msgstr ""
+
+msgid "Cannot retrieve user or password. Check vault json file or the credential system under use."
+msgstr ""
+
+msgid "Automatic custom action was not implemented."
+msgstr ""
+
+msgid "Custom task action done."
+msgstr ""
+
+msgid "Please do custom task action and then press OK to continue."
+msgstr ""

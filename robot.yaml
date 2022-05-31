@@ -1,0 +1,24 @@
+tasks:
+  In:
+    robotTaskName: Workday Check In
+    
+  Out:
+    robotTaskName: Workday Check Out
+
+  Verify:
+    robotTaskName: Workday Verify
+
+  Custom:
+    robotTaskName: Custom Task
+
+  Icon:
+    shell: python runtrayicon.py
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore

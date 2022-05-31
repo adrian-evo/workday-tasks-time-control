@@ -1,0 +1,46 @@
+{
+    "LEVEL_1_ACTIONS": {
+        "DISPLAY_TRAY_ICON": true,
+        "SILENT_RUN": false
+    },
+    "LEVEL_2_ACTIONS": {
+        "OPEN_CHECKIN_URL": false,
+        "OPEN_CHECKOUT_URL": false,
+        "OPEN_CUSTOM_URL": false
+    },
+    "LEVEL_3_ACTIONS": {
+        "DO_CHECKIN_ACTION": false,
+        "DO_CHECKOUT_ACTION": false,
+        "DO_CUSTOM_ACTION": false
+    },
+    "MY_DATA": {
+        "STANDARD_WORKING_TIME": "8 hours 30 minutes",
+        "CHECKIN": {
+            "URL": "https://mail.yahoo.com",
+            "SYSTEM": "Checkin",
+            "USER": "",
+            "PASSWORD": ""
+        },
+        "CUSTOM": {
+            "URL": "https://www.foreca.com/100681290/Cluj-Napoca-Romania",
+            "SYSTEM": "",
+            "USER": "",
+            "PASSWORD": ""
+        }
+    },
+    "ICON_DATA": {
+        "CHECKIN_DONE_COLOR": "DarkSlateGrey",
+        "CHECKOUT_DONE_COLOR": "Red",
+        "OVERTIME_STARTED_COLOR": "Green",
+        "BREAK_TIME_COLOR": "Blue",
+        "CHECKOUT_WARNING_COLOR": "Yellow=Black",
+        "CHECKOUT_WARNING_MINUTES": 30
+    },
+    "OUTPUT": {
+        "CUMULATED_OVER_UNDER_TIME": "",
+        "CHECKIN_DATE": "",
+        "CHECKOUT_CALC_DATE": "",
+        "BREAK_TIME_TODAY": "",
+        "TRAY_ICON_PID": 0
+    }
+}
