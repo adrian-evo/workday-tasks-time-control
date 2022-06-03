@@ -96,7 +96,7 @@ Then open your *vault.json* file and edit the following:
 "MY_DATA":
 
 	"CHECKIN.URL": path to your excel file (e.g. "C:/Data/workday-tasks-time-control/devdata/my.xlsx" 
-	or similar, but always use slash for the path)
+	or similar in Windows, but always use slash for the path. For macOS it might be "/Users/user/Data/workday-tasks-time-control/devdata/my.xlsx", or relative path, e.g. "devdata/my.xlsx".)
 
 The file must be an empty excel file that you want to use to record checkin / checkout times. When actions level is enabled, these will be filled automatically in the excel file without starting the Excel application.
 

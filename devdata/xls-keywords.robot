@@ -60,17 +60,25 @@ Verify App Task
     [Documentation]  Verify App task
     # activated from Level 2
     &{env}  Load JSON From File    %{VAULT_FILE}
-    Log    ${{ os.startfile("${env.MY_DATA.CHECKIN.URL}") }}
+    IF    '${{ sys.platform }}' == 'win32'
+        Log    ${{ os.startfile("${env.MY_DATA.CHECKIN.URL}") }}
+    ELSE
+        Log    ${{ subprocess.call(["open", "${env.MY_DATA.CHECKIN.URL}"]) }}
+    END
 
 Open Checkin App
     [Documentation]  Open a browser and go to check in URL
     &{env}  Load JSON From File    %{VAULT_FILE}
 
     # When level 3 is enabled, edit excel directly without opening it, otherwise open it with system default application
-    IF    ${env.LEVEL_3_ACTIONS.DO_CHECKOUT_ACTION} == True
+    IF    ${env.LEVEL_3_ACTIONS.DO_CHECKIN_ACTION} == True
         Open Workbook    ${env.MY_DATA.CHECKIN.URL}
     ELSE
-        {{os.startfile(${env.MY_DATA.CHECKIN.URL})}}
+        IF    '${{ sys.platform }}' == 'win32'
+            Log    ${{ os.startfile("${env.MY_DATA.CHECKIN.URL}") }}
+        ELSE
+            Log    ${{ subprocess.call(["open", "${env.MY_DATA.CHECKIN.URL}"]) }}
+        END
     END
 
 Custom App Task
