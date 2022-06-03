@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Common keywords not related to url actions
+Documentation   Common keywords
 
 Library  RPA.JSON
 Library  Dialogs
@@ -17,7 +17,7 @@ Variables  taskslocales.py
 Display Check In Out Tray Icon
     [Documentation]  Display a tray icon with check-in and calculated check-out times as tooltip
 
-    &{env}  Load JSON From File    %{JSON_FILE}
+    &{env}  Load JSON From File    %{VAULT_FILE}
     ${running}    Is Tray Icon Running    ${env.OUTPUT.TRAY_ICON_PID}
     IF     not ${running}
         ${process}    Start Process    ${CURDIR}/run-tasks.bat    Icon
@@ -28,7 +28,7 @@ Calculate Working Times
     [Return]    ${today_working_time}    ${today_wt_diff}    ${total_wt_diff}
 
     # read today check-in date and time and standard working time from json file
-    &{env}  Load JSON From File    %{JSON_FILE}
+    &{env}  Load JSON From File    %{VAULT_FILE}
 
     # 1. calculate already worked time today compared with check-in time
     ${date_now}  Get Current Date
@@ -47,7 +47,7 @@ Retrieve Checkin Credentials
     [Documentation]  Get User and Password fields based on Title from vault json or Keepass database
     [Return]  ${user}  ${pw}
 
-    &{env}  Load JSON From File    %{JSON_FILE}
+    &{env}  Load JSON From File    %{VAULT_FILE}
 
     # if user field from json is empty, try to use keyring specific database (Credential Manager or Keychain)
     IF    '${env.MY_DATA.CHECKIN.USER}' == '${EMPTY}'
@@ -60,17 +60,12 @@ Retrieve Checkin Credentials
     ELSE
         ${pw}    Set Variable  ${env.MY_DATA.CHECKIN.PASSWORD}
     END
-    # fail if no user or password are retrieved
-    IF    '${user}' == '${EMPTY}' or '${pw}' == '${EMPTY}'
-        Pause Execution    ${TRANS.get('Cannot retrieve user or password. Check vault json file or the credential system under use.')}
-        Fail
-    END
 
 Retrieve Custom Credentials
     [Documentation]  Get User and Password fields based on Title from vault json or Keepass database
     [Return]  ${user}  ${pw}
 
-    &{env}  Load JSON From File    %{JSON_FILE}
+    &{env}  Load JSON From File    %{VAULT_FILE}
 
     # if user field from json is empty, try to use keyring specific database (Credential Manager or Keychain)
     IF    '${env.MY_DATA.CUSTOM.USER}' == '${EMPTY}'

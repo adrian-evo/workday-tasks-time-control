@@ -4,9 +4,9 @@
         "SILENT_RUN": false
     },
     "LEVEL_2_ACTIONS": {
-        "OPEN_CHECKIN_URL": false,
-        "OPEN_CHECKOUT_URL": false,
-        "OPEN_CUSTOM_URL": false
+        "OPEN_CHECKIN_APP": false,
+        "OPEN_CHECKOUT_APP": false,
+        "OPEN_CUSTOM_APP": false
     },
     "LEVEL_3_ACTIONS": {
         "DO_CHECKIN_ACTION": false,

@@ -216,6 +216,10 @@ class WorkdayTrayIcon:
         self.icon.stop()
 
     def checkin_action(self):
+        # reset break if it is active during check in
+        self.break_active = False
+        self.update_icon()
+
         return subprocess.Popen([run_task_command, 'In'])
 
     def checkout_action(self):

@@ -7,28 +7,18 @@ In order to start the "*Icon*" task with the operating system reboot, go to proj
 ## What happens if you don't check out after check in or if you check in twice without check out first?
 
 - "*Check out*" and "*Verify*" tasks will not be executed if "*Check in*" task was not performed first
-- If you run the "*Check in*" task and then you forgot to run the "*Check out*" task, then the second "*Check in*" in a row will ignore any cumulated overtime and it will just start a new fresh check in. If needed, this situation can be corrected manually by editing CUMULATED_OVER_UNDER_TIME entry within _vault.json_ file.
+- If you run the "*Check in*" task and then you forgot to run the "*Check out*" task, then the second "*Check in*" in a row will ignore any cumulated overtime and it will just start a new fresh check in. If needed, this situation can be corrected manually by editing CUMULATED_OVER_UNDER_TIME entry within your _vault.json_ file.
+- If you run the "*Check in*" or "*Check out*" task during an active *Break*, then the break time will be ignored and reset.
 
 ## What if something is not working correctly?
 
-Most probably the _vault.json_ (or custom file if in use) is corrupted or contains wrong data after some wrong manual editing. Just Quit the Icon from the menu, restore the vault file with the original one and then restart the "*Icon*" task.
-
-## Customizable vault file and language
-
-Optionally, you can edit _devdata/env.file_ with own custom values:
-
-	"JSON_FILE": optional custom vault file (e.g. vault-my.json). This vault file is taken into use 
-	any time after Icon restart (Quit the icon from the menu and then run again the Icon task).
-	"LOCALE": currently two languages are included, "en" for English and "de" for German. 
-	Change this entry e.g., to "de" then restart the Icon. You can customize all language texts with own 
-	translation. See below for details how to do it.
-	"URL_KEYWORDS": custom robot file that you can use to implement own second and third level actions
+Most probably your _vault.json_ is corrupted or contains wrong data after wrong manual editing. Just Quit the Icon from the menu, restore your vault content from the original unaltered one and then restart the "*Icon*" task.
 
 ## What is the meaning of different icon colors and how to customize them?
 
-The icon will be red on first run, which means workday did not started yet. You can edit _vault.json_ file (or custom one if defined above) and play with own data within MY_DATA and ICON_DATA sections and then do random "*Check in*", "*Check out*" and "*Verify*" tasks. Feel free to experiment with any data to see how it works and how different colors looks like with your operating system color profiles, and when you are ready to start using it, restore your _vault.json_ with the original data. Especially the CUMULATED_OVER_UNDER_TIME is modified during these experiments and can be set to empty string ("") any time manually. Changing the data or any of the colors and saving the file while the icon is visible, will update the icon data and the colors in real time.
+The icon will be red on first run, which means workday did not started yet. You can edit your _vault.json_ file and play with own data within MY_DATA and ICON_DATA sections and then do random "*Check in*", "*Check out*" and "*Verify*" tasks. Feel free to experiment with any data to see how it works and how different colors looks like with your operating system color profiles, and when you are ready to start using it, restore your _vault.json_ with the original data. Especially the CUMULATED_OVER_UNDER_TIME is modified during these experiments and can be set to empty string ("") any time manually. Changing the data or any of the colors and saving the file while the icon is visible, will update the icon data and the colors in real time.
 	
-*NOTE*: You can use any HTML Color name, e.g., https://www.w3schools.com/colors/colors_names.asp, except color "*None*" which means transparent or the color of the system taskbar.
+*NOTE*: You can use any HTML Color name, e.g., https://www.w3schools.com/colors/colors_names.asp, including color "*None*" which means transparent or the color of the system taskbar.
 
 *NOTE*: You can also give the font color in the following way: icon_color=font_color, e.g., _Yellow=Black_, will use black font on the yellow icon so that the text is visible. If there is no font color given, this means by default system color font, usually White. 
 
@@ -64,7 +54,7 @@ Usually there is no need to edit the entries from the OUTPUT section unless you 
 
 ## How to store the credentials in the specific system keyring service
 
-Since it is usually not a good idea to store passwords as plaintext in the _vault.json_ file, a better approach is to save them in the following system keyring service, depending of the operating system:
+Since it is usually not a good idea to store passwords as plaintext in your _vault.json_ file, a better approach is to save them in the following system keyring service, depending of the operating system:
 
 **Credential Manager in Windows:**
 
@@ -72,11 +62,11 @@ Open Credential Manager, then Windows Credential, then click "*Add a generic cre
 
 1. For password
 
-	- "*Internet or network address*": your_username@checkin (your_username is the same as CHECKIN.USER entry from _vault.json_, and checkin is the same as CHECKIN.SYSTEM entry). E.g., myuser@mycheckinsystem
+	- "*Internet or network address*": your_username@checkin (your_username is the same as CHECKIN.USER entry from your _vault.json_, and checkin is the same as CHECKIN.SYSTEM entry). E.g., myuser@mycheckinsystem
 	- "*Username*": your_username. E.g., myuser
 	- "*Password*": your_password (the same as CHECKIN.PASSWORD entry)
  
-2. With a special "trick", your_username can be saved under the same system, instead of keeping it inside _vault.json_, and this is done by using a special entry "username" while the password is your actual username. Click to add a new generic credential and fill in:
+2. With a special "trick", your_username can be saved under the same system, instead of keeping it inside your _vault.json_, and this is done by using a special entry "username" while the password is your actual username. Click to add a new generic credential and fill in:
 
 	- "*Internet or network address*": username@checkin (the string "username" is not your username, and you should keep it as it is). E.g., username@mycheckinsystem
 	- "*Username*": username (unchanged "username" string)
@@ -93,7 +83,7 @@ Open Keychain Access, then under Default Keychains click "*login*" and then clic
 
 1. For password
 
-	- "*Keychain Item Name*": Checkin (the same as CHECKIN.SYSTEM entry from _vault.json_ file). E.g., mycheckinsystem
+	- "*Keychain Item Name*": Checkin (the same as CHECKIN.SYSTEM entry from your _vault.json_ file). E.g., mycheckinsystem
 	- "*Account Name*": your_username (the same as CHECKIN.USER entry). E.g., myuser
 	- "*Password*": your_password (the same as CHECKIN.PASSWORD entry)
 
@@ -110,9 +100,11 @@ Open Keychain Access, then under Default Keychains click "*login*" and then clic
 
 On the first task run that requires credential, there will be a dialog "python wants to use your confidential information stored in "Checkin" in your keychain". Type your keychain password (usually the same as macOS login password) and then Always Allow so that you will not be asked every time you run a task. If you saved both username and password in Keychain, then there will be two dialogs displayed.
 
-**NOTE**: When you want to use system keyring service instead of _vault.json_, put the corresponding entry as empty string in the _vault.json_ file.
+**NOTE**: When you want to use system keyring service instead of using your _vault.json_, put the corresponding entry as empty string in the _vault.json_ file.
 
 ## How to translate all or replace text messages with own custom text
+
+The language in use is defined by the "LOCALE" entry from _devdata/env.file_: "en" for English and "de" for German.
 
 The localized texts are stored under _locales\en\LC_MESSAGES\template.po_ for English and _locales\de\LC_MESSAGES\template.po_ for German. For English, you can edit this file and add own text to any of the **msgstr** strings, but not necessarily for all, in any language you wish. Do not touch any of the **msgid** strings! For example:
 	
@@ -131,22 +123,18 @@ For German, replace "en" with "de" in the above command. Notice that _mypath\hol
 
 To take the new translations into use, restart the Icon by Quit menu and executing the "*Icon*" task.
 
-## How to switch to Playwright library and back
+## How to switch to Playwright library
 
-Due to Selenium limitations and exceptions, it runs much slower than Playwright, mainly when automating dynamic unstable type of web pages. If you want to switch to Playwright, you can do it automatically or manually as explained here.
+Due to Selenium limitations and exceptions, it runs much slower than Playwright, mainly when automating dynamic unstable type of web pages. If you want to switch to Playwright, do the following:
 
-**Note**: Playwright environment is bigger than Selenium since _node.js_ is installed along with Playwright library, Browser equivalent RPA library and all 3 types of browsers (Chromium, Mozilla and WebKit), all under _AppData\Local\robocorp_ on Windows or *.robocorp* on macOS.
+- edit "APP_KEYWORDS" from *devdata/env.json* to use "*devdata/url-keywords-pw.robot*". Customize the keywords as needed by your web applications.
 
-Automatically:
+- edit *conda.yaml* and add *nodejs*, *robotframework-browser* and *rfbrowser init* entries, as in the example file *tools/conda-pw.yaml*
 
-- Run _tools/switch libs.bat_ on Windows or _tools/switch libs.command_ on macOS to switch between Selenium and Playwright environment and back.
-
-Manually:
-
-- The directory **pw** contains 2 files, _conda.yaml.pw_ (environment for Playwright library) and _url-keywords.robot.pw_ (the same tasks executed with Playwright instead of Selenium)
-
-- Remove .pw extension and move both files over the existing files under root directory and execute e.g., the "*Icon*" task again after you Quit the icon, so that the environment will be created for the first time. See these [notes for robocorp and rcc toolchain](/README.md#notes-for-robocorp-and-rcc-toolchain) for details about the enviromnent.
+- Quit and execute the "*Icon*" task, so that the environment will be created for the first time. See these [notes for robocorp and rcc toolchain](/README.md#notes-for-robocorp-and-rcc-toolchain) for details about the enviromnent.
 
 - Remove manually the _output_ directory
 
-- Run the tasks as explained above
+- Run the tasks as usual
+
+**Note**: Playwright environment is bigger than Selenium since _node.js_ is installed along with Playwright library, Browser equivalent RPA library and all 3 types of browsers (Chromium, Mozilla and WebKit), all under _AppData\Local\robocorp_ on Windows or *.robocorp* on macOS.

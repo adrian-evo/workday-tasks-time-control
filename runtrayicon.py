@@ -8,7 +8,7 @@ import os, sys
 def set_locale_from_vault_file():
     with open('devdata/env.json') as f:
         data = json.load(f)
-    vault = data['JSON_FILE']
+    vault = data['VAULT_FILE']
     assert exists(vault)
 
     os.environ['LANG'] = data['LOCALE']    
