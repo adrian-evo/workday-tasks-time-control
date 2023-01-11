@@ -124,7 +124,7 @@ There are five tasks that you can run, and three ways you can run the tasks.
 
 **The three ways** to run the tasks are:
 
-1. From within project directory folder, with double click on _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS, then choose task name to run. Note that the **.command** file on macOS need to set **_chmod +x file_** before executing, due to macOS permisssion restrictions.
+1. From within project directory folder, with double click on _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS, then choose task name to run. Note that the **.command** file on macOS need to set **_chmod +x file_** before executing, and then for first run choose "Open With -> Terminal" from Finder, due to macOS permisssion restrictions.
 
 2. From **Command prompt** on Windows or **Terminal** on macOS, by executing the following command in the project directory folder, where you will replace the Task word with the actual task name as defined above
 
