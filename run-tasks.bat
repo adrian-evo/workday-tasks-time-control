@@ -57,9 +57,14 @@ echo The Check-!MyChoice! task will be executed in !wait! seconds. Press any key
 echo .
 timeout /t !wait!
 
+:: During icon task, check and disable anonymous tracking if enabled.
+if "!MyChoice!"=="Icon" ( 
+	rcc configure identity --do-not-track
+)
+
 :: execute the task choice
 if !silent! == "true" (
-  cmd /c rcc run -t !MyChoice! -e !env! --silent
+  cmd /c rcc run -t !MyChoice! -e !env! --silent --controller wdttc14
 ) else (
-  cmd /c rcc run -t !MyChoice! -e !env!
+  cmd /c rcc run -t !MyChoice! -e !env! --controller wdttc14
 )
