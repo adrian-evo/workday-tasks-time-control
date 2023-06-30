@@ -1,7 +1,9 @@
 tasks:
   In:
+    # Enable only one of these two lines. With shell line, both 'Workday Check In' and 'Custom Task' are performed at once
     robotTaskName: Workday Check In
-    
+    #shell: python -m robot --outputdir output --task 'Workday Check In' --task 'Custom Task' tasks.robot
+
   Out:
     robotTaskName: Workday Check Out
 
@@ -13,6 +15,9 @@ tasks:
 
   Icon:
     shell: python runtrayicon.py
+
+  Language:
+    shell: python taskslocales.py
 
 condaConfigFile: conda.yaml
 artifactsDir: output

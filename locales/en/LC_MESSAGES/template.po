@@ -34,6 +34,9 @@ msgstr ""
 msgid "Break"
 msgstr ""
 
+msgid "Reset"
+msgstr ""
+
 msgid "Quit"
 msgstr ""
 
@@ -102,4 +105,10 @@ msgid "Custom task action done."
 msgstr ""
 
 msgid "Please do custom task action and then press OK to continue."
+msgstr ""
+
+msgid "This action will reset to default all [OUTPUT] related data in your vault file! \n Continue?"
+msgstr ""
+
+msgid "Reset Warning"
 msgstr ""

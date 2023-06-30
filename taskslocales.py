@@ -29,3 +29,20 @@ def retrieve_username(system):
 
 def retrieve_password(system, username):
     return keyring.get_password(system, username)
+
+
+# running this file will regenerate the locales
+if __name__ == '__main__':
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    head, tail = os.path.split(sys.executable)
+    msgfmt = head + '/Tools/i18n/msgfmt.py'
+    head, tail = os.path.split(Path(__file__))
+    print(head)
+    arg_en = head + '/locales/en/LC_MESSAGES/template'
+    arg_de = head + '/locales/de/LC_MESSAGES/template'
+    subprocess.run(["python", msgfmt, arg_en])
+    subprocess.run(["python", msgfmt, arg_de])
+    print('done')

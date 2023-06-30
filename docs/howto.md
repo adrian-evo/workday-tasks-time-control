@@ -113,7 +113,9 @@ The localized texts are stored under _locales\en\LC_MESSAGES\template.po_ for En
 
 After editing, the _template.mo_ files need to be regenerated from **Command prompt** on Windows or **Terminal** on macOS, by executing the following commands:
 
-- Go to project directory folder and run:
+- Go to project directory folder and double click on _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS, then, instead of a task name write "Language" (e.g. "Type the task to execute: In, Out... [Icon]: **Language**").
+
+- The same can be done manually with the following sequence (just for understanding how above Language task works):
 > _rcc task script -- python -c "import sys; print(sys.executable)"_
 - The above command will list the python executable path, e.g., _mypath\holotree\randomstring\python.exe_
 - Notice the above python path, and run the following command that will regenerate the language file:

@@ -128,7 +128,7 @@ There are five tasks that you can run, and three ways you can run the tasks.
 
 2. From **Command prompt** on Windows or **Terminal** on macOS, by executing the following command in the project directory folder, where you will replace the Task word with the actual task name as defined above
 
-> **_rcc run -t Task -e devdata/env.json --controller myname_** (e.g., rcc run -t Icon -e devdata/env.json --controller wdttc14). Controller myname needs to be different after project or libraries upgrade, otherwise there will be access denied on the Robocorp environment.
+> **_rcc run -t Task -e devdata/env.json --controller myname_** (e.g., rcc run -t Icon -e devdata/env.json --controller wdttc20). Controller myname needs to be different after project or libraries upgrade, otherwise there will be access denied on the Robocorp environment.
 
 3. From the "**Icon menu**", after executing any of the *In*, *Out* or *Icon* task since any of these tasks will also display the tray icon.
 
@@ -141,6 +141,10 @@ There are five tasks that you can run, and three ways you can run the tasks.
 - "*Icon*":  to display the tray icon, which is the essence of the time control on the first level. The icon is also displayed during "*Check In*" and "*Check Out*" tasks executions and it can be restarted automatically after operating system reboot. Quit the icon and rerun the task any time you edit *devdata/env.json* to use custom vault or language.
 
 - "*Break*" icon menu is not a task, but it will simply pause the work and will extend the workday by extending the calculated checkout time. To make things easier, you can include the regular lunch break in the standard working time (e.g., use 8h30’ instead of 8h for the STANDARD_WORKING_TIME entry) and then use this menu break for any additional breaks that should normally extend the workday.
+
+**'Hidden' tasks:**
+- "*Startup*": to enable automatic icon restart by the operating system.
+- "*Language*": to regenerate the locales after replacing text messages with own custom text.
 
 ## Notes for Robocorp and Rcc toolchain
 

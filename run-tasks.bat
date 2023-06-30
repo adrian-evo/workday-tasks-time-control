@@ -31,6 +31,7 @@ if "!MyChoice!"=="" (
   if "!MyChoice!" == "Custom" set valid=1
   if "!MyChoice!" == "Icon" set valid=1
   if "!MyChoice!" == "Startup" set valid=1
+  if "!MyChoice!" == "Language" set valid=1
   if not defined valid (
     echo The !MyChoice! is invalid task. Please choose a valid task or close window to exit.
     goto ASK
@@ -62,9 +63,15 @@ if "!MyChoice!"=="Icon" (
 	rcc configure identity --do-not-track
 )
 
+:: Read controller value from env.json
+for /f "tokens=1,2 delims=:{} " %%A in (!env!) do (
+    if "%%~A"=="CONTROLLER" set "%%~A=%%~B"
+)
+echo rcc controller is: !CONTROLLER!
+
 :: execute the task choice
 if !silent! == "true" (
-  cmd /c rcc run -t !MyChoice! -e !env! --silent --controller wdttc14
+  cmd /c rcc run -t !MyChoice! -e !env! --silent --controller !CONTROLLER!
 ) else (
-  cmd /c rcc run -t !MyChoice! -e !env! --controller wdttc14
+  cmd /c rcc run -t !MyChoice! -e !env! --controller !CONTROLLER!
 )

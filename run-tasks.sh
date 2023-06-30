@@ -4,6 +4,9 @@
 # Default env.json
 env=devdata/env.json
 
+# Controller: to be updated with a new version of this tool
+controller=wdttc20
+
 # Edit this value for a custom wait time in seconds when executing tasks from tray icon
 wait=5
 
@@ -27,7 +30,7 @@ then
     while true; do
       read -p "Type the task to execute: In, Out, Verify, Custom, Icon [Icon]: " choice
       choice=${choice:-Icon}
-      if [ "$choice" == "In" ] || [ "$choice" == "Out" ] || [ "$choice" == "Verify" ] || [ "$choice" == "Custom" ] || [ "$choice" == "Icon" ] || [ "$choice" == "Startup" ]
+      if [ "$choice" == "In" ] || [ "$choice" == "Out" ] || [ "$choice" == "Verify" ] || [ "$choice" == "Custom" ] || [ "$choice" == "Icon" ] || [ "$choice" == "Startup" ] || [ "$choice" == "Language" ]
       then
         break
       else
@@ -106,9 +109,9 @@ osascript -ss - "$cwd" <<EOF
             set T to do script ("cd " & quoted form of item 1 of argv)
             set W to the id of window 1 where its tab 1 = T
             if $silent is true
-              do script ("rcc run -t \"$choice\" -e \"$env\" --silent") in T
+              do script ("rcc run -t \"$choice\" -e \"$env\" --silent --controller $controller") in T
             else
-              do script ("rcc run -t \"$choice\" -e \"$env\"") in T
+              do script ("rcc run -t \"$choice\" -e \"$env\" --controller $controller") in T
             end
             repeat
               delay 1

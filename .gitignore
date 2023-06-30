@@ -11,10 +11,9 @@ temp/
 .DS_Store
 *.pyc
 *.zip
-devdata/env-my.json
-vault-my.json
-vault-sm.json
-url-keywords-sm.robot
+devdata-*/
+locales-*/
+overtimemenu-my*.py
 settings.ini
 repository*.png
 local/

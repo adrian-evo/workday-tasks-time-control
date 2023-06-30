@@ -31,6 +31,9 @@ msgstr "Verifizieren"
 msgid "Custom"
 msgstr "Custom"
 
+msgid "Reset"
+msgstr "Zurücksetzen"
+
 msgid "Break"
 msgstr "Pause"
 
@@ -103,3 +106,9 @@ msgstr "Benutzerdefinierte Aufgaben Aktion erledigt!"
 
 msgid "Please do custom task action and then press OK to continue!"
 msgstr "Bitte führen Sie eine benutzerdefinierte Aufgaben Aktion aus und drücken Sie dann OK, um fortzufahren!"
+
+msgid "This action will reset to default all [OUTPUT] related data in your vault file! \n Continue?"
+msgstr "Durch diese Aktion werden alle [OUTPUT]-bezogenen Daten in Ihrer Vault-JSON-Datei auf die Standardeinstellungen zurückgesetzt! \n Fortfahren?"
+
+msgid "Reset Warning"
+msgstr "Warnung zurücksetzen"

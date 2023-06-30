@@ -12,7 +12,7 @@ import subprocess
 from datetime import datetime, timedelta
 import psutil
 from taskslocales import _
-
+import overtimemenu
 
 # icon data
 icon_size = (48, 48)
@@ -31,10 +31,6 @@ else:
 
 # how often to update the tray icon, color and tooltip text. default 10 seconds
 event_time_sleep = 10
-
-# enable Overtime hidden menu item, that when enabled will automatically execute overtime_custom_action() once Overtime starts
-overtime_menu_item_visible = False
-
 
 # check if tray icon pid saved in vault file is already running
 def is_tray_icon_running(pid):
@@ -56,7 +52,7 @@ class WorkdayTrayIcon:
         self.break_active = False
 
         # is overtime menu visible or active
-        self.overtime_visible = overtime_menu_item_visible
+        self.overtime_visible = overtimemenu.overtime_menu_item_visible
         self.overtime_active = False
 
         self.exit_event = None
@@ -87,6 +83,7 @@ class WorkdayTrayIcon:
             #MenuItem(_('Break'), self.break_action, checked=lambda _: self.break_active, default=True, enabled=lambda _: self.break_enabled), 
             MenuItem(_('Break'), self.break_action, checked=lambda _: self.break_active, enabled=lambda _: self.break_enabled), 
             MenuItem(_('Overtime'), self.overtime_action, checked=lambda _: self.overtime_active, visible=lambda _: self.overtime_visible), 
+            MenuItem(_('Reset'), lambda : self.reset_action()), 
             MenuItem(_('Quit'), lambda : self.exit_action()), 
         )
         self.icon.icon = img
@@ -250,8 +247,20 @@ class WorkdayTrayIcon:
         self.overtime_active = not item.checked
         self.update_icon()
 
-    def overtime_custom_action(self):
-        return
+    def reset_action(self):
+        import ctypes
+        mb_topmost_flag = 0x00040000
+        ret = ctypes.windll.user32.MessageBoxW(0, _("This action will reset to default all [OUTPUT] related data in your vault file! \n Continue?"), _("Reset Warning"), 4 | 48 | mb_topmost_flag)
+
+        if ret == 6:
+            data['OUTPUT']['CUMULATED_OVER_UNDER_TIME'] = ''
+            data['OUTPUT']['CHECKIN_DATE'] = ''
+            data['OUTPUT']['CHECKOUT_CALC_DATE'] = ''
+            data['OUTPUT']['BREAK_TIME_TODAY'] = ''
+            
+            with open(self.vault, 'w') as f:
+                json.dump(data, f, ensure_ascii=True, indent=4)
+
 
 if __name__ == '__main__':
     assert len(sys.argv) == 2
@@ -271,5 +280,6 @@ if __name__ == '__main__':
         json.dump(data, f, ensure_ascii=True, indent=4)
 
     # create workday tray icon instance
+    WorkdayTrayIcon.overtime_custom_action = overtimemenu.overtime_custom_action
     WorkdayTrayIcon.instance = WorkdayTrayIcon(vault)
     WorkdayTrayIcon.instance.create_icon()
