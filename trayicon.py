@@ -170,6 +170,9 @@ class WorkdayTrayIcon:
             hover_text = hover_text + ' ' + _('[Passed: {}, Overtime: {}]').format(passed, extra)
             self.update_image(checkout_time, data['ICON_DATA']['OVERTIME_STARTED_COLOR'])
 
+        if self.overtime_active:
+            self.update_image(checkout_time, overtimemenu.overtime_checked_color)
+
         # execute a custom action when overtime starts
         if self.overtime_active and timenow > checkout_calc:
             self.overtime_active = False
