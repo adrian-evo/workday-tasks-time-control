@@ -11,7 +11,8 @@ class Translation:
         self.locale = os.getenv('LANG', 'en')
         
     def get(self, text):
-        return  gettext.translation('template', localedir='locales', languages=[self.locale]).gettext(text)
+        path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'locales')
+        return  gettext.translation('template', localedir=path, languages=[self.locale]).gettext(text)
 
 # Robot Framework variable to be used as ${TRANS.get('Text')}
 TRANS = Translation()
@@ -40,9 +41,9 @@ if __name__ == '__main__':
     head, tail = os.path.split(sys.executable)
     msgfmt = head + '/Tools/i18n/msgfmt.py'
     head, tail = os.path.split(Path(__file__))
-    print(head)
-    arg_en = head + '/locales/en/LC_MESSAGES/template'
-    arg_de = head + '/locales/de/LC_MESSAGES/template'
-    subprocess.run(["python", msgfmt, arg_en])
-    subprocess.run(["python", msgfmt, arg_de])
-    print('done')
+    path_en = os.path.join(os.path.dirname(head), 'locales/en/LC_MESSAGES/template')
+    path_de = os.path.join(os.path.dirname(head), 'locales/de/LC_MESSAGES/template')
+    print(path_en)
+    subprocess.run(["python", msgfmt, path_en])
+    subprocess.run(["python", msgfmt, path_de])
+    print('done')    

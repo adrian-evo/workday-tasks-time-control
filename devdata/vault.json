@@ -1,12 +1,11 @@
 {
     "LEVEL_1_ACTIONS": {
-        "DISPLAY_TRAY_ICON": true,
         "SILENT_RUN": false
     },
     "LEVEL_2_ACTIONS": {
-        "OPEN_CHECKIN_APP": false,
-        "OPEN_CHECKOUT_APP": false,
-        "OPEN_CUSTOM_APP": false
+        "OPEN_CHECKIN_APP": true,
+        "OPEN_CHECKOUT_APP": true,
+        "OPEN_CUSTOM_APP": true
     },
     "LEVEL_3_ACTIONS": {
         "DO_CHECKIN_ACTION": false,

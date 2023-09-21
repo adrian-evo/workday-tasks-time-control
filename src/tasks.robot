@@ -33,11 +33,6 @@ Workday Check In
     ${new_env}    Update Value To JSON    ${new_env}    $.OUTPUT.CHECKOUT_CALC_DATE    ${date_out}
     Save JSON To File    ${new_env}    %{VAULT_FILE}    indent=4
 
-    # display tray icon
-    IF    ${env.LEVEL_1_ACTIONS.DISPLAY_TRAY_ICON} == True
-        Display Check In Out Tray Icon
-    END
-
     # if no over or undertime cumulated, assume 0 seconds
     ${text}    Set Variable If    '${env.OUTPUT.CUMULATED_OVER_UNDER_TIME}' == '${EMPTY}'
     ...    0 seconds
@@ -75,10 +70,6 @@ Workday Check Out
     ${new_env}    Update Value To JSON    ${env}    $.OUTPUT.CUMULATED_OVER_UNDER_TIME    ${wt_text}
     ${new_env}    Update Value To JSON    ${new_env}    $.OUTPUT.CHECKIN_DATE    00:00
     Save JSON To File    ${new_env}    %{VAULT_FILE}    indent=4
-
-    IF    ${env.LEVEL_1_ACTIONS.DISPLAY_TRAY_ICON} == True
-        Display Check In Out Tray Icon
-    END
 
     # Goodbye message
     IF    ${env.LEVEL_1_ACTIONS.SILENT_RUN} == False

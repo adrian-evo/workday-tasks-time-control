@@ -6,8 +6,8 @@ Library  RPA.Browser.Selenium
 Library  RPA.JSON
 Library  Dialogs
 
-Resource  common-keywords.robot
-Variables  taskslocales.py
+Resource  ../src/common-keywords.robot
+Variables  ../src/taskslocales.py
 
 *** Variables ***
 ${BROWSER_TIMEOUT}  30s

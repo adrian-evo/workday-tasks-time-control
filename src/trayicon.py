@@ -21,25 +21,16 @@ font_size = 22
 # platform specific variables - macOS or Windows
 if sys.platform.startswith('darwin'):
     ttf_font = 'SFNS.ttf'
-    run_task_command = './run-tasks.sh'
+    run_task_command = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'run-tasks.sh')
     python_str = 'python'
 else:
     ttf_font = 'arialbd.ttf'
-    run_task_command = 'run-tasks.bat'
+    run_task_command = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'run-tasks.bat')
     python_str = 'python.exe'
 
 
 # how often to update the tray icon, color and tooltip text. default 10 seconds
 event_time_sleep = 10
-
-# check if tray icon pid saved in vault file is already running
-def is_tray_icon_running(pid):
-    for p in psutil.process_iter(["pid", "name"]):
-        if p.info['name'] == python_str and p.info['pid'] == pid:
-            print('Process with pid {} and name "{}" is running.'.format(p.info['pid'], p.info['name']))
-            return True
-    print('Workday tray icon not running. Starting.')
-    return False
 
 
 # workday tray icon class
@@ -275,8 +266,13 @@ if __name__ == '__main__':
         data = json.load(f)
 
     # check if it is running and don't run again
-    if is_tray_icon_running(data['OUTPUT']['TRAY_ICON_PID']):
-        sys.exit()
+    for p in psutil.process_iter(["pid", "name"]):
+        if p.info['name'] == python_str and p.info['pid'] == data['OUTPUT']['TRAY_ICON_PID']:
+            print('Process with pid {} and name "{}" is running.'.format(p.info['pid'], p.info['name']))
+            sys.exit()
+        else:
+            print('Workday tray icon not running. Starting.')
+            break
 
     data['OUTPUT']['TRAY_ICON_PID'] = os.getpid()
     with open(vault, 'w') as f:

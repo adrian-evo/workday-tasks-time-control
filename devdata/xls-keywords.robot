@@ -6,8 +6,8 @@ Library  RPA.Excel.Files
 Library  RPA.JSON
 Library  Dialogs
 
-Resource  common-keywords.robot
-Variables  taskslocales.py
+Resource  ./src/common-keywords.robot
+Variables  ./src/taskslocales.py
 
 
 *** Variables ***

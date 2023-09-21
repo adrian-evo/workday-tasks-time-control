@@ -7,22 +7,11 @@ Library  DateTime
 Library  String
 Library  Process
 
-Library  trayicon.py
 Library  taskslocales.py
-
 Variables  taskslocales.py
 
 
 *** Keywords ***
-Display Check In Out Tray Icon
-    [Documentation]  Display a tray icon with check-in and calculated check-out times as tooltip
-
-    &{env}  Load JSON From File    %{VAULT_FILE}
-    ${running}    Is Tray Icon Running    ${env.OUTPUT.TRAY_ICON_PID}
-    IF     not ${running}
-        ${process}    Start Process    ${CURDIR}/run-tasks.bat    Icon
-    END
-
 Calculate Working Times
     [Documentation]  Return working times
     [Return]    ${today_working_time}    ${today_wt_diff}    ${total_wt_diff}

@@ -14,10 +14,10 @@ tasks:
     robotTaskName: Custom Task
 
   Icon:
-    shell: python runtrayicon.py
+    shell: python src/runtrayicon.py
 
   Language:
-    shell: python taskslocales.py
+    shell: python src/taskslocales.py
 
 condaConfigFile: conda.yaml
 artifactsDir: output

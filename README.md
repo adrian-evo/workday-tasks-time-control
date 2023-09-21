@@ -69,9 +69,11 @@ The Robocorp environment is totally isolated in an user folder (_user\AppData\Lo
 > Execute _**tools/install rcc.bat**_ on Windows or see [how to install rcc toolchain](#how-to-install-rcc-toolchain) section below for details, including macOS.
 
 :o2: Run the "*Icon*" task
-> Execute _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS (after _chmod +x file_) and then choose "*Icon*" task. Optionally check the [detailed instructions](#the-tasks-and-how-to-run-them) below about the tasks and the alternative ways to run them.
+> Execute _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS and then choose "*Icon*" task. Optionally check the [detailed instructions](#the-tasks-and-how-to-run-them) below about the tasks and the alternative ways to run them.
 
 **NOTE. First run:** The full environment is not loaded during RCC toolchain setup, since the needed packages are not known by then, but for any project this is done during first task run. For this solution it is recommended that you choose "*Icon*" task for first run, and then wait until the full environment is downloaded and ready. The [notes for robocorp and rcc toolchain](#notes-for-robocorp-and-rcc-toolchain) below have the details about the environment location, size and download time. 
+
+**NOTE. For macOS:** The files to run tasks on macOS are _run-tasks.command_ and _run-tasks.sh_ and are located under _tools_ directory. Move them under root directory and move _run-tasks.bat_ for Windows under _tools_ directory. Also note that the **.command** file on macOS need to set **_chmod +x file_** before executing, and then for first run choose "Open With -> Terminal" from Finder, due to macOS permisssion restrictions.
 
 If everything was installed correctly, then a system tray red icon will be displayed with the current time on it:
 
@@ -124,7 +126,7 @@ There are five tasks that you can run, and three ways you can run the tasks.
 
 **The three ways** to run the tasks are:
 
-1. From within project directory folder, with double click on _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS, then choose task name to run. Note that the **.command** file on macOS need to set **_chmod +x file_** before executing, and then for first run choose "Open With -> Terminal" from Finder, due to macOS permisssion restrictions.
+1. From within project directory folder, with double click on _**run-tasks.bat**_ on Windows or _**run-tasks.command**_ on macOS, then choose task name to run.
 
 2. From **Command prompt** on Windows or **Terminal** on macOS, by executing the following command in the project directory folder, where you will replace the Task word with the actual task name as defined above
 

@@ -26,8 +26,6 @@ The following customizations from *vault.json* file are useful for this level:
 
 "LEVEL_1_ACTIONS":
 
-    "DISPLAY_TRAY_ICON": show or hide the tray icon
-
     "SILENT_RUN": to enable or disable the "*Welcome*" and "*Goodbye*" messages
 	at the end of tasks execution.
 
