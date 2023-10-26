@@ -12,7 +12,7 @@ set silent="true"
 
 :: On first run, when Output folder does not exists, silent is false anyway to that to have progress visible
 echo "%cd%\output"
-if not exist "%cd%\output" (
+if not exist "%cd%\output\log.html" (
   set silent="false"
 )
 
