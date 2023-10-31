@@ -243,8 +243,8 @@ class WorkdayTrayIcon:
 
     def reset_action(self):
         import ctypes
-        mb_topmost_flag = 0x00040000
-        ret = ctypes.windll.user32.MessageBoxW(0, _("This action will reset to default all [OUTPUT] related data in your vault file! \n Continue?"), _("Reset Warning"), 4 | 48 | mb_topmost_flag)
+        mb_topmost_flag = 0x40000
+        ret = ctypes.windll.user32.MessageBoxExW(None, _("This action will reset to default all [OUTPUT] related data in your vault file! \n Continue?"), _("Reset Warning"), 4 | 48 | mb_topmost_flag)
 
         if ret == 6:
             data['OUTPUT']['CUMULATED_OVER_UNDER_TIME'] = ''

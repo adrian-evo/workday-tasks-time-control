@@ -5,8 +5,8 @@ overtime_checked_color = 'Magenta'
 
 def overtime_custom_action(self):
     import ctypes
-    mb_topmost_flag = 0x00040000
-    ctypes.windll.user32.MessageBoxW(0, "You overtime work just started! \n Take a break or do the Check Out!", "Overtime", 0 | 16 | mb_topmost_flag)
+    mb_topmost_flag = 0x40000
+    ret = ctypes.windll.user32.MessageBoxExW(0, "You overtime work just started! \n Take a break or do the Check Out!", "Overtime", 0 | 16 | mb_topmost_flag)
 
 if __name__ == '__main__':
     overtime_custom_action()
