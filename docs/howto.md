@@ -125,6 +125,8 @@ For German, replace "en" with "de" in the above command. Notice that _mypath\hol
 
 To take the new translations into use, restart the Icon by Quit menu and executing the "*Icon*" task.
 
+*NOTE*: Instead of modifying _template.po_, just create a file _custom.po_ with own translations. Then regenerate the template as explained above.
+
 ## How to switch to Playwright library
 
 Due to Selenium limitations and exceptions, it runs much slower than Playwright, mainly when automating dynamic unstable type of web pages. If you want to switch to Playwright, do the following:

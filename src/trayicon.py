@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 import psutil
 from taskslocales import _
 import overtimemenu
+import aboutaction
 
 # icon data
 icon_size = (48, 48)
@@ -65,23 +66,33 @@ class WorkdayTrayIcon:
         self.icon = pystray.Icon(_('Check In-Out time'))
 
         # icon menus
+        actual_version, new_version, description, released_at = self.check_release()        
+
+        if new_version <= actual_version:
+            about = _('About')
+        else:
+            about = _('About (Upgrade available)')
+
         self.icon.menu = Menu(
             MenuItem(_('Check In'), lambda : self.checkin_action()), 
             MenuItem(_('Check Out'), lambda : self.checkout_action()), 
             MenuItem(_('Verify'), lambda : self.verify_action()), 
             MenuItem(_('Custom'), lambda : self.custom_action()), 
+            Menu.SEPARATOR,
             # Update the state in `break_action` and return the new state in a `checked` callable
             #MenuItem(_('Break'), self.break_action, checked=lambda _: self.break_active, default=True, enabled=lambda _: self.break_enabled), 
             MenuItem(_('Break'), self.break_action, checked=lambda _: self.break_active, enabled=lambda _: self.break_enabled), 
             MenuItem(_('Overtime'), self.overtime_action, checked=lambda _: self.overtime_active, visible=lambda _: self.overtime_visible), 
             MenuItem(_('Reset'), lambda : self.reset_action()), 
+            Menu.SEPARATOR,
+            MenuItem(about, lambda : self.about_action()), 
             MenuItem(_('Quit'), lambda : self.exit_action()), 
         )
         self.icon.icon = img
         self.icon.run(WorkdayTrayIcon.setup)
 
     @staticmethod
-    def setup(icon: pystray.Icon) -> None:
+    def setup(icon) -> None:
         icon.visible = True
         while not WorkdayTrayIcon.instance.exit_event.is_set():
             WorkdayTrayIcon.instance.update_icon()
@@ -280,5 +291,7 @@ if __name__ == '__main__':
 
     # create workday tray icon instance
     WorkdayTrayIcon.overtime_custom_action = overtimemenu.overtime_custom_action
+    WorkdayTrayIcon.check_release = aboutaction.check_release
+    WorkdayTrayIcon.about_action = aboutaction.about_action
     WorkdayTrayIcon.instance = WorkdayTrayIcon(vault)
     WorkdayTrayIcon.instance.create_icon()

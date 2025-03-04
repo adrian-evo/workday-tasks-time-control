@@ -40,6 +40,12 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
+msgid "About"
+msgstr ""
+
+msgid "About (Upgrade available)"
+msgstr ""
+
 msgid "Welcome!"
 msgstr ""
 
@@ -101,14 +107,20 @@ msgstr ""
 msgid "Automatic custom action was not implemented."
 msgstr ""
 
-msgid "Custom task action done."
+msgid "Custom task action done!"
 msgstr ""
 
-msgid "Please do custom task action and then press OK to continue."
+msgid "Please do custom task action and then press OK to continue!"
 msgstr ""
 
 msgid "This action will reset to default all [OUTPUT] related data in your vault file! \n Continue?"
 msgstr ""
 
 msgid "Reset Warning"
+msgstr ""
+
+msgid "Your current version is {}\nThere are no new updates available"
+msgstr ""
+
+msgid "Your current version is {}\nThe latest version is {}\nDescription: {}\nReleased at: {}"
 msgstr ""

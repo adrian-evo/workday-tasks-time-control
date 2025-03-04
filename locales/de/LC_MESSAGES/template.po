@@ -40,6 +40,12 @@ msgstr "Pause"
 msgid "Quit"
 msgstr "Beenden"
 
+msgid "About"
+msgstr "Über"
+
+msgid "About (Upgrade available)"
+msgstr "Über (Upgrade verfügbar)"
+
 msgid "Welcome!"
 msgstr "Willkommen!"
 
@@ -112,3 +118,9 @@ msgstr "Durch diese Aktion werden alle [OUTPUT]-bezogenen Daten in Ihrer Vault-J
 
 msgid "Reset Warning"
 msgstr "Warnung zurücksetzen"
+
+msgid "Your current version is {}\nThere are no new updates available"
+msgstr "Deine aktuelle Version ist {}\nEs sind keine neuen Updates verfügbar"
+
+msgid "Your current version is {}\nThe latest version is {}\nDescription: {}\nReleased at: {}"
+msgstr "Ihre aktuelle Version ist {}\nDie neueste Version ist {}\nBeschreibung: {}\nVeröffentlicht am: {}"

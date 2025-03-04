@@ -9,13 +9,13 @@ dependencies:
   # Define conda packages here. 
   # If available, always prefer the conda version of a package, installation will be faster and more efficient.
   # https://anaconda.org/search  
-  - python=3.11.5
+  - python=3.11.11
 
   - pip=23.2.1
   - pip:
     # Define pip packages here. 
     # https://pypi.org/
-    - rpaframework==27.1.0 # https://rpaframework.org/releasenotes.html
+    - rpaframework==28.0.0 # https://rpaframework.org/releasenotes.html
     - pystray==0.19.5
-    - psutil==5.9.5
-    - keyring==24.2.0
+    - psutil==5.9.7
+    - keyring==24.3.0
