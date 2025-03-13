@@ -1,3 +1,9 @@
+# Obsolete
+
+The project is obsolete, due to the fact that Robocorp moved away from Robot Framework, and Rcc toolchain is not open source anymore. I will use full Python projects and pure Playwright in the future. No need to use proprietary tools for running such tasks.
+
+The new project is: https://github.com/adrian-evo/wdttc2
+
 # workday-tasks-time-control
 
 This is a modern, customizable, open-source RPA - Robotic Process Automation - solution with Robocorp environment that will help you to "*turn on/off work*" and to avoid uncontrolled overtime, or in other words will help you to:	
